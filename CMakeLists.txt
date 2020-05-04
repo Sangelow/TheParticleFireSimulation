@@ -1,13 +1,18 @@
+# Cmake version
 cmake_minimum_required(VERSION 3.7)
 
+# Project details
 project(ParticleFireSimulation)
 
-# Find https://stackoverflow.com/questions/23850472/how-to-use-sdl2-and-sdl-image-with-cmake
-find_package(SDL2 REQUIRED COMPONENTS SDL2::SDL2)
+# Build type
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
 
-# Compile
-add_executable(main src/main.cpp)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-# Link
-target_link_libraries(main SDL2::SDL2)
+# Add subdirectories
+add_subdirectory(bin)
 
