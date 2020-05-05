@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Screen.hpp
+SDL2/SDL.h
+-
+
 /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/main.cpp
 iostream
 -
@@ -13,4 +17,6 @@ math.h
 -
 SDL2/SDL.h
 -
+Screen.hpp
+/home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Screen.hpp
 

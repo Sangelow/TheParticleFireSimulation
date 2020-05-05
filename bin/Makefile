@@ -145,6 +145,33 @@ main/fast:
 	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+__/src/Screen.o: __/src/Screen.cpp.o
+
+.PHONY : __/src/Screen.o
+
+# target to build an object file
+__/src/Screen.cpp.o:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Screen.cpp.o
+.PHONY : __/src/Screen.cpp.o
+
+__/src/Screen.i: __/src/Screen.cpp.i
+
+.PHONY : __/src/Screen.i
+
+# target to preprocess a source file
+__/src/Screen.cpp.i:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Screen.cpp.i
+.PHONY : __/src/Screen.cpp.i
+
+__/src/Screen.s: __/src/Screen.cpp.s
+
+.PHONY : __/src/Screen.s
+
+# target to generate assembly for a file
+__/src/Screen.cpp.s:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Screen.cpp.s
+.PHONY : __/src/Screen.cpp.s
+
 __/src/main.o: __/src/main.cpp.o
 
 .PHONY : __/src/main.o
@@ -181,6 +208,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... __/src/Screen.o"
+	@echo "... __/src/Screen.i"
+	@echo "... __/src/Screen.s"
 	@echo "... __/src/main.o"
 	@echo "... __/src/main.i"
 	@echo "... __/src/main.s"
