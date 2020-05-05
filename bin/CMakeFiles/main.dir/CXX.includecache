@@ -9,6 +9,8 @@
 /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/main.cpp
 iostream
 -
+math.h
+-
 SDL2/SDL.h
 -
 
