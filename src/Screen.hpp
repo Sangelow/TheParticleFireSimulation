@@ -18,6 +18,8 @@ class Screen {
 		Screen();
 		bool init();
 		bool process_events();
+		void update();
+		void set_pixel(int x, int y, Uint8 r, Uint8 g, Uint8 b);
 		void close();
 };
 

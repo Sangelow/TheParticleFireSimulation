@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "Screen.hpp"
 
 namespace fl {
@@ -50,29 +51,7 @@ bool Screen::init() {
 	// Initialise the screen color to black
 	memset(m_buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32));
 
-	/* Change pixels colors
-	unsigned char R = 0;
-	unsigned char G = 0;
-	unsigned char B = 0;
-	unsigned char A = 0;
-	Uint32 color;
-	int x;
-	int y;
-	for (int i=0; i<SCREEN_WIDTH*SCREEN_HEIGHT; i++) {
-		x = i % SCREEN_WIDTH;
-		y = i / SCREEN_WIDTH;
-		//R = 255*sin(2*M_PI*x/SCREEN_WIDTH);
-		//G = 255*sin(2*M_PI*x/SCREEN_WIDTH + M_PI/2);
-		//B = 255*sin(2*M_PI*x/SCREEN_WIDTH + M_PI/4);
-		buffer_1[i] = (R << 24) |  (G << 16) | (B << 8) | A ;
-	}
-	*/
-
-	// Init the texture
-	SDL_UpdateTexture(m_texture, NULL, m_buffer, SCREEN_WIDTH*sizeof(Uint32));
-	SDL_RenderClear(m_renderer);
-	SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
-	SDL_RenderPresent(m_renderer);
+	// Update the texture
 
 	return true;
 }
@@ -91,6 +70,27 @@ bool Screen::process_events(){
 	return true;
 }
 
+void Screen::update() {
+	SDL_UpdateTexture(m_texture, NULL, m_buffer, SCREEN_WIDTH*sizeof(Uint32));
+	SDL_RenderClear(m_renderer);
+	SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
+	SDL_RenderPresent(m_renderer);
+}
+
+void Screen::set_pixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
+	// Check if the x and y value are on the screen
+	if ( x < 0 || SCREEN_WIDTH <= x ) {
+        throw std::invalid_argument( "Invalid x value in screen.set_pixel" );
+    }
+	if ( y < 0 || SCREEN_HEIGHT <= y ) {
+        throw std::invalid_argument( "Invalid y value in screen.set_pixel" );
+	}
+	// Set the color
+	Uint32 color = (r << 24) |  (g << 16) | (b << 8) | 0xFF ;
+	// Set the color of the pixel
+	m_buffer[x + y*SCREEN_WIDTH] = color;
+}
+
 void Screen::close() {
 	// Free the buffer
 	delete [] m_buffer;
@@ -104,6 +104,4 @@ void Screen::close() {
 	SDL_Quit();
 }
 
-
 };
-
