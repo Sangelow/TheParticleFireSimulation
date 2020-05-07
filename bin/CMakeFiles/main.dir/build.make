@@ -103,20 +103,50 @@ bin/CMakeFiles/main.dir/__/src/Screen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/__/src/Screen.cpp.s"
 	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Screen.cpp -o CMakeFiles/main.dir/__/src/Screen.cpp.s
 
+bin/CMakeFiles/main.dir/__/src/Particle.cpp.o: bin/CMakeFiles/main.dir/flags.make
+bin/CMakeFiles/main.dir/__/src/Particle.cpp.o: src/Particle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object bin/CMakeFiles/main.dir/__/src/Particle.cpp.o"
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/__/src/Particle.cpp.o -c /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Particle.cpp
+
+bin/CMakeFiles/main.dir/__/src/Particle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/__/src/Particle.cpp.i"
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Particle.cpp > CMakeFiles/main.dir/__/src/Particle.cpp.i
+
+bin/CMakeFiles/main.dir/__/src/Particle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/__/src/Particle.cpp.s"
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Particle.cpp -o CMakeFiles/main.dir/__/src/Particle.cpp.s
+
+bin/CMakeFiles/main.dir/__/src/Swarm.cpp.o: bin/CMakeFiles/main.dir/flags.make
+bin/CMakeFiles/main.dir/__/src/Swarm.cpp.o: src/Swarm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object bin/CMakeFiles/main.dir/__/src/Swarm.cpp.o"
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/__/src/Swarm.cpp.o -c /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Swarm.cpp
+
+bin/CMakeFiles/main.dir/__/src/Swarm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/__/src/Swarm.cpp.i"
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Swarm.cpp > CMakeFiles/main.dir/__/src/Swarm.cpp.i
+
+bin/CMakeFiles/main.dir/__/src/Swarm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/__/src/Swarm.cpp.s"
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/src/Swarm.cpp -o CMakeFiles/main.dir/__/src/Swarm.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/__/src/main.cpp.o" \
-"CMakeFiles/main.dir/__/src/Screen.cpp.o"
+"CMakeFiles/main.dir/__/src/Screen.cpp.o" \
+"CMakeFiles/main.dir/__/src/Particle.cpp.o" \
+"CMakeFiles/main.dir/__/src/Swarm.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
 bin/main: bin/CMakeFiles/main.dir/__/src/main.cpp.o
 bin/main: bin/CMakeFiles/main.dir/__/src/Screen.cpp.o
+bin/main: bin/CMakeFiles/main.dir/__/src/Particle.cpp.o
+bin/main: bin/CMakeFiles/main.dir/__/src/Swarm.cpp.o
 bin/main: bin/CMakeFiles/main.dir/build.make
 bin/main: /usr/lib/libSDL2-2.0.so.0.12.0
 bin/main: bin/CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable main"
 	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation/bin && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

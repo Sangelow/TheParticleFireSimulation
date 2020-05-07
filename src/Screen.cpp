@@ -49,7 +49,7 @@ bool Screen::init() {
 	m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
 
 	// Initialise the screen color to black
-	memset(m_buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32));
+	clear();
 
 	// Update the texture
 
@@ -77,13 +77,20 @@ void Screen::update() {
 	SDL_RenderPresent(m_renderer);
 }
 
+void Screen::clear() {
+	// Set all the value in the buffer to 0
+	memset(m_buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32));
+}
+
 void Screen::set_pixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
 	// Check if the x and y value are on the screen
 	if ( x < 0 || SCREEN_WIDTH <= x ) {
-        throw std::invalid_argument( "Invalid x value in screen.set_pixel" );
+		return;
+        // throw std::invalid_argument( "Invalid x value in screen.set_pixel" );
     }
 	if ( y < 0 || SCREEN_HEIGHT <= y ) {
-        throw std::invalid_argument( "Invalid y value in screen.set_pixel" );
+		return;
+        // throw std::invalid_argument( "Invalid y value in screen.set_pixel" );
 	}
 	// Set the color
 	Uint32 color = (r << 24) |  (g << 16) | (b << 8) | 0xFF ;

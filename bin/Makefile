@@ -145,6 +145,33 @@ main/fast:
 	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+__/src/Particle.o: __/src/Particle.cpp.o
+
+.PHONY : __/src/Particle.o
+
+# target to build an object file
+__/src/Particle.cpp.o:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Particle.cpp.o
+.PHONY : __/src/Particle.cpp.o
+
+__/src/Particle.i: __/src/Particle.cpp.i
+
+.PHONY : __/src/Particle.i
+
+# target to preprocess a source file
+__/src/Particle.cpp.i:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Particle.cpp.i
+.PHONY : __/src/Particle.cpp.i
+
+__/src/Particle.s: __/src/Particle.cpp.s
+
+.PHONY : __/src/Particle.s
+
+# target to generate assembly for a file
+__/src/Particle.cpp.s:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Particle.cpp.s
+.PHONY : __/src/Particle.cpp.s
+
 __/src/Screen.o: __/src/Screen.cpp.o
 
 .PHONY : __/src/Screen.o
@@ -171,6 +198,33 @@ __/src/Screen.s: __/src/Screen.cpp.s
 __/src/Screen.cpp.s:
 	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Screen.cpp.s
 .PHONY : __/src/Screen.cpp.s
+
+__/src/Swarm.o: __/src/Swarm.cpp.o
+
+.PHONY : __/src/Swarm.o
+
+# target to build an object file
+__/src/Swarm.cpp.o:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Swarm.cpp.o
+.PHONY : __/src/Swarm.cpp.o
+
+__/src/Swarm.i: __/src/Swarm.cpp.i
+
+.PHONY : __/src/Swarm.i
+
+# target to preprocess a source file
+__/src/Swarm.cpp.i:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Swarm.cpp.i
+.PHONY : __/src/Swarm.cpp.i
+
+__/src/Swarm.s: __/src/Swarm.cpp.s
+
+.PHONY : __/src/Swarm.s
+
+# target to generate assembly for a file
+__/src/Swarm.cpp.s:
+	cd /home/floiseau/Dropbox/Scripts/cpp/cpp_tutorial_for_complete_beginners/TheParticleFireSimulation && $(MAKE) $(MAKESILENT) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/__/src/Swarm.cpp.s
+.PHONY : __/src/Swarm.cpp.s
 
 __/src/main.o: __/src/main.cpp.o
 
@@ -208,9 +262,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... __/src/Particle.o"
+	@echo "... __/src/Particle.i"
+	@echo "... __/src/Particle.s"
 	@echo "... __/src/Screen.o"
 	@echo "... __/src/Screen.i"
 	@echo "... __/src/Screen.s"
+	@echo "... __/src/Swarm.o"
+	@echo "... __/src/Swarm.i"
+	@echo "... __/src/Swarm.s"
 	@echo "... __/src/main.o"
 	@echo "... __/src/main.i"
 	@echo "... __/src/main.s"

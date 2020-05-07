@@ -2,7 +2,7 @@
 find_package(SDL2 REQUIRED COMPONENTS SDL2::SDL2)
 
 # Compile
-add_executable(main ../src/main.cpp ../src/Screen.cpp)
+add_executable(main ../src/main.cpp ../src/Screen.cpp ../src/Particle.cpp ../src/Swarm.cpp)
 
 # Link
 target_link_libraries(main SDL2::SDL2)
