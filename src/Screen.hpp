@@ -7,8 +7,9 @@ namespace fl {
 
 class Screen {
 	public:
-		static const int SCREEN_WIDTH = 800;
-		static const int SCREEN_HEIGHT = 600;
+		static const int SCREEN_WIDTH = 1900;
+		static const int SCREEN_HEIGHT = 1060;
+		static const int BLUR_BOX_HALF_SIZE = 2;
 	private:
 		SDL_Window *m_window;
 		SDL_Renderer *m_renderer;
@@ -22,7 +23,7 @@ class Screen {
 		void update();
 		void clear();
 		void box_blur();
-		void set_pixel(int x, int y, Uint8 r, Uint8 g, Uint8 b);
+		void set_pixel(int &x, int &y, Uint8 &r, Uint8 &g, Uint8 &b);
 		void close();
 };
 
