@@ -60,9 +60,9 @@ int main(){
 			y = (particle.m_y*Screen::SCREEN_WIDTH/2)+Screen::SCREEN_HEIGHT/2;
 
 			// Set the particle color
-			r = 127.5*(1+cos(particle.m_x*t*1e-3));
-			g = 127.5*(1+cos(particle.m_y*t*1e-3+2/3*M_PI));
-			b = 127.5*(1+cos(particle.m_x*t*1e-3+4/3*M_PI));
+			r = 127.5*(1+cos(2*t*1e-3));
+			g = 127.5*(1+cos(2*t*1e-3+2/3*M_PI));
+			b = 127.5*(1+cos(2*t*1e-3+4/3*M_PI));
 
 			// Set the pixel
 			screen.set_pixel(x, y, r, g, b);
