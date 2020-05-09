@@ -5,7 +5,7 @@
 namespace fl {
 
 Screen::Screen() :
-	m_window(NULL), m_renderer(NULL), m_texture(NULL), m_buffer(NULL) {
+	m_window(NULL), m_renderer(NULL), m_texture(NULL), m_main_buffer(NULL) {
 }
 
 bool Screen::init() {
@@ -46,7 +46,10 @@ bool Screen::init() {
 			SCREEN_HEIGHT);
 
 	// Create the buffer
-	m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+	m_main_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+
+	// Create the temp buffer
+	m_temp_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
 
 	// Initialise the screen color to black
 	clear();
@@ -71,7 +74,7 @@ bool Screen::process_events(){
 }
 
 void Screen::update() {
-	SDL_UpdateTexture(m_texture, NULL, m_buffer, SCREEN_WIDTH*sizeof(Uint32));
+	SDL_UpdateTexture(m_texture, NULL, m_main_buffer, SCREEN_WIDTH*sizeof(Uint32));
 	SDL_RenderClear(m_renderer);
 	SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
 	SDL_RenderPresent(m_renderer);
@@ -79,7 +82,61 @@ void Screen::update() {
 
 void Screen::clear() {
 	// Set all the value in the buffer to 0
-	memset(m_buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32));
+	memset(m_main_buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32));
+}
+
+void Screen::box_blur() {
+	// Store the current main buffer into the temp buffer
+	for (int i=0; i<SCREEN_WIDTH*SCREEN_HEIGHT; i++) {
+		m_temp_buffer[i] = m_main_buffer[i];
+	}
+	// Reset the main buffer
+	clear();
+	// Declare position varaibles
+	int x;
+	int y;
+	// Declare box size
+	int box_half_size = 2;
+	// Declare int colors to average
+	int r_tot;
+	int g_tot;
+	int b_tot;
+	// Declare final colors
+	unsigned char r;
+	unsigned char g;
+	unsigned char b;
+	// NOTE: this loop could be written in parallel for better perfomances
+	for (int i=0; i<SCREEN_WIDTH*SCREEN_HEIGHT; i++) {
+		// Reset the color sum
+		r_tot = 0;
+		g_tot = 0;
+		b_tot = 0;
+		// Set position variables
+		x = i % SCREEN_WIDTH;
+		y = i / SCREEN_WIDTH;
+		// If the pixel is on a boundary of the screen, continue to the next pixel
+		if ( x <=  box_half_size || SCREEN_WIDTH - box_half_size <= x ) {
+			continue;
+		}
+		if ( y <= box_half_size || SCREEN_HEIGHT - box_half_size <= y ) {
+			continue;
+		}
+		// Average the color in the box
+		for (int n_x=x-box_half_size+1; n_x<x+box_half_size; n_x++) {
+			for (int n_y=y-box_half_size+1; n_y<y+box_half_size; n_y++) {
+				// Increment the colors
+				r_tot += (int)((m_temp_buffer[n_x + n_y*SCREEN_WIDTH] & 0xFF000000) >> 24);
+				g_tot += (int)((m_temp_buffer[n_x + n_y*SCREEN_WIDTH] & 0x00FF0000) >> 16);
+				b_tot += (int)((m_temp_buffer[n_x + n_y*SCREEN_WIDTH] & 0x0000FF00) >> 8);
+			}
+		}
+		// Average the color
+		r = r_tot /((2*box_half_size - 1)*(2*box_half_size - 1));
+		g = g_tot /((2*box_half_size - 1)*(2*box_half_size - 1));
+		b = b_tot /((2*box_half_size - 1)*(2*box_half_size - 1));
+		// Set the pixel color
+		set_pixel(x, y, r, g, b);
+	}
 }
 
 void Screen::set_pixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
@@ -95,12 +152,14 @@ void Screen::set_pixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
 	// Set the color
 	Uint32 color = (r << 24) |  (g << 16) | (b << 8) | 0xFF ;
 	// Set the color of the pixel
-	m_buffer[x + y*SCREEN_WIDTH] = color;
+	m_main_buffer[x + y*SCREEN_WIDTH] = color;
 }
 
 void Screen::close() {
 	// Free the buffer
-	delete [] m_buffer;
+	delete [] m_main_buffer;
+	// Frree the temp buffer
+	delete [] m_temp_buffer;
 	// Destroy the texture
 	SDL_DestroyTexture(m_texture);
 	// Destroy the renderer

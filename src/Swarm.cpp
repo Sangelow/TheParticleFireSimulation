@@ -13,10 +13,10 @@ Swarm::~Swarm() {
 	delete [] m_particles;
 }
 
-void Swarm::update() {
+void Swarm::update(int delta) {
 	// Update all the particle position
 	for (int i=0; i<N_PARTICLES; i++) {
-		m_particles[i].update();
+		m_particles[i].update(delta);
 	}
 }
 

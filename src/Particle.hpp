@@ -7,12 +7,12 @@ struct Particle {
 
 	double m_x;
 	double m_y;
-	double m_vx;
-	double m_vy;
+	double m_speed;
+	double m_direction;
 
 public:
 	Particle();
-	void update();
+	void update(int delta);
 };
 
 }

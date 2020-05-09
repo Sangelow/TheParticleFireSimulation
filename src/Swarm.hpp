@@ -7,7 +7,7 @@ namespace fl {
 
 class Swarm {
 public:
-	const static int N_PARTICLES = 10000;
+	const static int N_PARTICLES = 1000;
 
 private:
 	Particle * m_particles;
@@ -16,7 +16,7 @@ public:
 	Swarm();
 	~Swarm();
 	const Particle * const get_particles() { return m_particles; };
-	void update();
+	void update(int delta);
 };
 
 }
